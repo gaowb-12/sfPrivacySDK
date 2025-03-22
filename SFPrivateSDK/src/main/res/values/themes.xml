@@ -1,8 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="TransparentTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="SfSdkTransparentTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
-<!--        <item name="android:windowBackground">@android:color/transparent</item>-->
-        <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="android:windowBackground">@color/sf_sdk_windowBackground</item>
     </style>
 </resources>

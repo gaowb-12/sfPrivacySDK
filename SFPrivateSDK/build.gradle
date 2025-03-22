@@ -6,6 +6,8 @@ android {
     namespace 'com.example.sfprivatesdk'
     compileSdk 35
 
+    resourcePrefix "sf_sdk_"
+
     defaultConfig {
         minSdk 28
 

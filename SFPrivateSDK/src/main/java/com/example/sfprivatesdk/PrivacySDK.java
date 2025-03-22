@@ -49,9 +49,9 @@ public class PrivacySDK extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.sf_sdk_activity_main);
 
-        webView = findViewById(R.id.webview);
+        webView = findViewById(R.id.sf_sdk_webview);
 
         // 设置 WebView 的布局参数
         ViewGroup.LayoutParams layoutParams = webView.getLayoutParams();
@@ -62,6 +62,7 @@ public class PrivacySDK extends AppCompatActivity {
         // 启用 JavaScript
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+
         // 设置js交互
         webView.addJavascriptInterface(new JsBridge(this), "jsBridge");
 
@@ -82,7 +83,7 @@ public class PrivacySDK extends AppCompatActivity {
     }
 
     // 获取屏幕高度
-    public static int getScreenHeight(Context context) {
+    private static int getScreenHeight(Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         return displayMetrics.heightPixels;
     }
