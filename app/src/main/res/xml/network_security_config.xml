@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!--  默认配置，是否开启Http流量允许-->
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+            <!-- 允许用户安装的证书 -->
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
