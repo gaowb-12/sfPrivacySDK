@@ -1,22 +1,20 @@
 package com.example.myapplicationsdk;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.sfprivatesdk.PrivacySDK;
+import com.example.sfprivatesdk.PrivacyConfig;
+import com.example.sfprivatesdk.PrivacyFormConfig;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        PrivacySDK.initPrivacyForm(
-        MainActivity.this,
-        "http://192.168.0.104:10086/pages/privacyForm/index?code=20250312180413A007&userId=7213440552216101011"
-        );
+        PrivacyConfig config = new PrivacyConfig("7213440552216101011","20250312181856A008","v1");
+        PrivacySDK.initPrivacy(this,config);
+        // PrivacyFormConfig formConfig = new PrivacyFormConfig("7213440552216101011","20250312180413A007");
+        // PrivacySDK.initPrivacyForm(this, formConfig);
     }
 }

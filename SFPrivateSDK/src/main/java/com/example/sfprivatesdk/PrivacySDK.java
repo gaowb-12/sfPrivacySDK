@@ -1,5 +1,6 @@
 package com.example.sfprivatesdk;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,25 +22,25 @@ public class PrivacySDK extends AppCompatActivity {
     private WebView webView;
     private static String comurl;
 
-    public PrivacySDK(){
-
-    }
-    public static void initPrivacy(Context context_, String url){
-//        comurl = "http://beta-h5.shufeng.cn/pages/privacy/index";
-        comurl = url;
+    public PrivacySDK(){}
+    // 初始化隐私政策
+    public static void initPrivacy(Context context_, PrivacyConfig config){
+        String search = "?code=" + config.code + "&userId=" + config.userId + "&version=" + config.version;
+        comurl = "http://beta-h5.shufeng.cn/pages/privacy/index" + search;
         context = context_;
         PrivacySDK.init(context);
     }
-    public static void initPrivacyForm(Context context_, String url) {
-//        comurl = "http://beta-h5.shufeng.cn/pages/privacyForm/index";
-        comurl = url;
+    // 初始化提交表单
+    public static void initPrivacyForm(Context context_, PrivacyFormConfig config) {
+        String search = "?code=" + config.code + "&userId=" + config.userId;
+        comurl = "http://beta-h5.shufeng.cn/pages/privacyForm/index" + search;
         context = context_;
         PrivacySDK.init(context);
     }
     // 初始化activity
     private static void init(Context context) {
         Intent intent = new Intent(context, PrivacySDK.class);
-        if (!(context instanceof android.app.Activity)) {
+        if (!(context instanceof Activity)) {
             // 如果不是 Activity 上下文，需要添加 FLAG_ACTIVITY_NEW_TASK 标志
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         }
