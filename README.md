@@ -6,13 +6,10 @@
 在项目 settings.gradle 或 build.gradle 添加：
 ```gradle
 dependencyResolutionManagement {
+    ...
     repositories {
-        maven {
-            url 'http://nexus.yourcompany.com/repository/maven-releases/'
-            content {
-                includeGroup "com.yourcompany"
-            }
-        }
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 ```
@@ -20,7 +17,7 @@ dependencyResolutionManagement {
 在模块的build.gradle中添加依赖
 ```gradle
 dependencies {
-    implementation 'com.yourcompany:mylibrary:1.0.0'
+    implementation 'com.github.gaowb-12:sfPrivacySDK:v0.0.1'
 }
 ```
 
