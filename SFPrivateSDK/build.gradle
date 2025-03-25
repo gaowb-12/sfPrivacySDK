@@ -26,16 +26,21 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
+    }
 }
 
 // 配置发布参数
 publishing {
     publications {
         release(MavenPublication) {
-            groupId = 'com.github.shufeng' // 组织标识
-            artifactId = 'sfPrivateSdk' // 组件名称
+            groupId = 'com.sfSdk' // 组织标识
+            artifactId = 'sfPrivate' // 组件名称
             version = '0.0.1' // 版本号
-
+            // artifact("$buildDir/outputs/aar/SFPrivateSDK-release.aar")
             afterEvaluate {
                 from components.release
             }
